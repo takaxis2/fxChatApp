@@ -1,0 +1,21 @@
+이번에 사용할것 
+ - Front : pug, tailwind css
+ - Back : koa
+ - Db : mongo
+ - connection : websocket(koa websocket)
+
+
+koa
+ - express만들던 사람들이 새롭게 만든것
+ - 형태가 비슷, async/await 기반
+ - next()는 다음 미들웨어로 가고 다음 미들웨어가 리턴되면 next()밑을 계속 실행(함수의 스택)
+
+
+pug
+ - koa를 사용하기 때문에 npm i koa-pug
+
+
+tailwind css
+ - Tailwind CSS IntelliSense를 사용하면 자동완성이나 추천이 뜬다(vs코드 플러그인)
+ - emmet이 작동 안할때는 settings.json을 찾아야함 
+    : Ctrl + , => emmet 그리고 settings.json을 찾아서 "tailwindCSS.emmetCompletions": true 추가
