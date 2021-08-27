@@ -2,13 +2,21 @@
  - Front : pug, tailwind css
  - Back : koa
  - Db : mongo
- - connection : websocket(koa websocket)
+ - connection : websocket(일반 websocket, socket.io아님)
 
 
 koa
  - express만들던 사람들이 새롭게 만든것
+ - 비교적 가볍고 필요한게 있다면 계속 설치해야함
  - 형태가 비슷, async/await 기반
  - next()는 다음 미들웨어로 가고 다음 미들웨어가 리턴되면 next()밑을 계속 실행(함수의 스택)
+ - koa-route : express-route랑 비슷한거
+ - koa-websocket : socket.io처럼 쓸 수 있을 듯
+ - koa-static : express에서 static파일 보관하듯이 사용할때
+ - koa-mount : url을 localhost:5000/public/client.js로 할때 app.use(serve('src/public'))에 걸려야 하지만 
+               안걸리고 바로 밑을 미들웨어에서 걸리서 main이 렌더되는 등의 경우를 상정하고 쓰는것
+               app.use("/users", router); 느낌
+ - 
 
 
 pug
@@ -19,3 +27,9 @@ tailwind css
  - Tailwind CSS IntelliSense를 사용하면 자동완성이나 추천이 뜬다(vs코드 플러그인)
  - emmet이 작동 안할때는 settings.json을 찾아야함 
     : Ctrl + , => emmet 그리고 settings.json을 찾아서 "tailwindCSS.emmetCompletions": true 추가
+
+IIFE
+ - 선언한 변수가 바깥에서 보여지기 싫을때 사용, 바로 정의해서 호출하는 함수
+
+
+
