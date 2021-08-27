@@ -39,11 +39,24 @@
     inputEl.value = "";
   });
 
-  socket.addEventListener("message", (event) => {
-    const message = JSON.parse(event.data);
+  function drawChats(payload) {
+    //console.log(payload.nickname);
     let li = document.createElement("li");
-    li.innerText = `${message.nickname} : ${message.message}`;
+    li.innerText = `${payload.nickname} : ${payload.message}`;
     chatsEl.appendChild(li);
+  }
+
+  socket.addEventListener("message", (event) => {
+    const { type, payload } = JSON.parse(event.data);
+
+    if (type === "sync") {
+      const { chats: syncedChats } = payload;
+      syncedChats.forEach((chat) => {
+        drawChats(chat);
+      });
+    } else if (type === "chat") {
+      drawChats(payload);
+    }
 
     //chatsEl.innerHTML = "";
   });
